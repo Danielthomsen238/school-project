@@ -1,6 +1,6 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/some-project",
+  "sourceRoot": "apps/forum",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/some-project",
-        "outputPath": "dist/apps/some-project"
+        "root": "apps/forum",
+        "outputPath": "dist/apps/forum"
       },
       "configurations": {
         "development": {},
@@ -20,16 +20,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "some-project:build",
+        "buildTarget": "forum:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "some-project:build:development",
+          "buildTarget": "forum:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "some-project:build:production",
+          "buildTarget": "forum:build:production",
           "dev": false
         }
       }
@@ -37,14 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "some-project:build:production"
+        "buildTarget": "forum:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/some-project"],
+      "outputs": ["coverage/apps/forum"],
       "options": {
-        "jestConfig": "apps/some-project/jest.config.ts",
+        "jestConfig": "apps/forum/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -52,7 +52,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/some-project/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/forum/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },
