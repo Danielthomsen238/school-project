@@ -1,7 +1,5 @@
-
 import excuteQuery from "../../src/db"
-
-
+const bcrypt = require('bcryptjs');
 
 async function handler(req, res) {
 
@@ -27,7 +25,9 @@ async function handler(req, res) {
             }
         });
         if(!userExist){
-        await excuteQuery(`INSERT INTO users(username, password) VALUES('${user}','${password}') `)
+        let salt = bcrypt.genSaltSync(10)
+        let hashPassword = bcrypt.hashSync(password, salt)    
+        await excuteQuery(`INSERT INTO users(username, password) VALUES('${user}','${hashPassword}') `)
         //Send success response
         res.status(201).json({ message: 'User created'});
         }

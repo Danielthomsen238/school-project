@@ -1,6 +1,7 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
 import excuteQuery from "../../../src/db"
+const bcrypt = require('bcryptjs');
 
 
 export default NextAuth({
@@ -18,7 +19,7 @@ export default NextAuth({
           // e.g. domain, username, password, 2FA token, etc.
           // You can pass any HTML attribute to the <input> tag through the object.
           credentials: {
-            user: { label: "Username", type: "text", placeholder: "jsmith" },
+            user: { label: "Username", type: "text", },
             password: {  label: "Password", type: "password" }
           },
           async authorize(credentials) {
@@ -31,15 +32,17 @@ export default NextAuth({
                   throw new Error('No user found with the email');
               }
               // //Check hased password with DB password
-              // const checkPassword = await compare(credentials.passowrd, result.passowrd);
-              const checkPassword = await excuteQuery(`SELECT password from users WHERE username = '${credentials.user}' AND password = '${credentials.password}'`)
-              console.log(checkPassword)
-              if (!checkPassword) {
+              
+              const checkPassword = await excuteQuery(`SELECT password from users WHERE username = '${credentials.user}' `) 
+              const doesPasswordMatch = bcrypt.compareSync(credentials.password, checkPassword[0].password)
+              if (!doesPasswordMatch) {
                 console.log("password dont match")
                   throw new Error('Password doesnt match');
               }
               //Else send success response
-              return { user: "dex" };
+              //Get id on the user 
+              const id = await excuteQuery(`SELECT id from users WHERE username = '${credentials.user}' AND password = '${checkPassword[0].password}'`)
+              return { userName: user[0].username, userID: id[0].id };
           },
       }),
   ],
@@ -48,20 +51,24 @@ export default NextAuth({
       console.log("im here")
       return baseUrl;
     },
-    async session({ session, user }) {
-      console.log("im here 2")
-      session.user.name = user
-      return session;
-    },
-    async jwt({ user}) {
-      if ( user) {
-
-        return {
-          user: user,
-        } 
-      }
-
-      return user;
-    },
+    //save the information of the user in the jwt
+    jwt: async ({ token, user }) => {
+      user && (token.user = user)
+      console.log(token)
+      return token
+  },
+  session: async ({ session, token }) => {
+      session.user.name = token.user.userName
+      session.user.id = token.user.userID
+      return session
+  }
+    
+  },
+  pages: {
+   //signIn: '/login/',
+   // signOut: '/auth/signout',
+   // error: '/auth/error', // Error code passed in query string as ?error=
+   // verifyRequest: '/auth/verify-request', // (used for check email message)
+   // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
 });
