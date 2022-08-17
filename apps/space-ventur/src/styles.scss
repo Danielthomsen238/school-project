@@ -1,3 +1,24 @@
-body {
-
+html, body {
+  margin: 0;
+  padding: 0;
 }
+
+body {
+    height: 120vh;
+}
+//sticky navbar
+nav {
+    background-color: #162e44;
+    height: 60px;
+    a {
+        color: #ffffff;
+        text-decoration: none;
+        padding: 12px 36px 8px 0;
+        font-size: 28px;
+      }
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }

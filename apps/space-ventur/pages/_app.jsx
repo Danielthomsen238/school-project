@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Navbar from '../components/Navbar';
 import '../src/styles.css';
 
 const CustomApp = ({ Component, pageProps }) => {
@@ -7,6 +8,7 @@ const CustomApp = ({ Component, pageProps }) => {
       <Head>
         <title>Welcome to space-ventur!</title>
       </Head>
+      <Navbar />
       <main className="app">
         <Component {...pageProps} />
       </main>
