@@ -1,6 +1,6 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/data-int",
+  "sourceRoot": "apps/space-ventur",
   "projectType": "application",
   "targets": {
     "build": {
@@ -8,8 +8,8 @@
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "root": "apps/data-int",
-        "outputPath": "dist/apps/data-int"
+        "root": "apps/space-ventur",
+        "outputPath": "dist/apps/space-ventur"
       },
       "configurations": {
         "development": {},
@@ -20,16 +20,16 @@
       "executor": "@nrwl/next:server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "data-int:build",
+        "buildTarget": "space-ventur:build",
         "dev": true
       },
       "configurations": {
         "development": {
-          "buildTarget": "data-int:build:development",
+          "buildTarget": "space-ventur:build:development",
           "dev": true
         },
         "production": {
-          "buildTarget": "data-int:build:production",
+          "buildTarget": "space-ventur:build:production",
           "dev": false
         }
       }
@@ -37,14 +37,14 @@
     "export": {
       "executor": "@nrwl/next:export",
       "options": {
-        "buildTarget": "data-int:build:production"
+        "buildTarget": "space-ventur:build:production"
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/data-int"],
+      "outputs": ["coverage/apps/space-ventur"],
       "options": {
-        "jestConfig": "apps/data-int/jest.config.ts",
+        "jestConfig": "apps/space-ventur/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -52,7 +52,7 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/data-int/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/space-ventur/**/*.{ts,tsx,js,jsx}"]
       }
     }
   },

@@ -1,17 +1,17 @@
 {
   "$schema": "..\\..\\node_modules\\nx\\schemas\\project-schema.json",
-  "sourceRoot": "apps/data-int-e2e/src",
+  "sourceRoot": "apps/space-ventur-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/data-int-e2e/cypress.json",
-        "devServerTarget": "data-int:serve:development"
+        "cypressConfig": "apps/space-ventur-e2e/cypress.json",
+        "devServerTarget": "space-ventur:serve:development"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "data-int:serve:production"
+          "devServerTarget": "space-ventur:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/data-int-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/space-ventur-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["data-int"]
+  "implicitDependencies": ["space-ventur"]
 }

@@ -2,9 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "data-int": "apps/data-int",
-    "data-int-e2e": "apps/data-int-e2e",
     "forum": "apps/forum",
-    "forum-e2e": "apps/forum-e2e"
+    "forum-e2e": "apps/forum-e2e",
+    "space-ventur": "apps/space-ventur",
+    "space-ventur-e2e": "apps/space-ventur-e2e"
   }
 }
