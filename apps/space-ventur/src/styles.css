@@ -7,6 +7,35 @@ body {
   height: 120vh;
 }
 
+.logoContainer {
+  max-width: 1500px;
+  height: 50px;
+  margin: 0 auto;
+  position: relative;
+}
+.logoContainer .logo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.linkContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.iconContainer {
+  margin-top: 17px;
+  margin-left: 40%;
+  display: flex;
+}
+.iconContainer div {
+  margin-left: 15px;
+}
+
 nav {
   background-color: #162e44;
   height: 60px;
@@ -22,4 +51,23 @@ nav a {
   position: fixed;
   top: 0;
   width: 100%;
+}
+
+@media only screen and (max-width: 1600px) {
+  .iconContainer {
+    margin-left: 20%;
+  }
+  nav a {
+    padding: 18px 36px 8px 0;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 950px) {
+  .iconContainer {
+    margin-left: 10px;
+  }
+  nav a {
+    padding: 20px 20px 8px 0;
+    font-size: 16px;
+  }
 }
