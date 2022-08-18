@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/link-passhref */
+
 import Link from "next/link";
 import Image from "next/image";
 import Logo from "../src/logo.png"
@@ -18,7 +19,6 @@ const [scrollPosition, setScrollPosition] = useState(0);
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
-console.log(scrollPosition)
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 

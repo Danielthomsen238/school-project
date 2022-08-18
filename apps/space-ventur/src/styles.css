@@ -1,14 +1,12 @@
+@charset "UTF-8";
 html, body {
   margin: 0;
   padding: 0;
 }
 
-body {
-  height: 120vh;
-}
-
 .logoContainer {
   max-width: 1500px;
+  z-index: 9999;
   height: 50px;
   margin: 0 auto;
   position: relative;
@@ -37,8 +35,11 @@ body {
 }
 
 nav {
+  overflow: hidden;
   background-color: #162e44;
   height: 60px;
+  position: relative;
+  z-index: 9999;
 }
 nav a {
   color: #ffffff;
@@ -51,6 +52,11 @@ nav a {
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 9999;
+}
+
+.app {
+  padding-top: 60px;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -70,4 +76,159 @@ nav a {
     padding: 20px 20px 8px 0;
     font-size: 16px;
   }
+}
+.footer_icon {
+  color: #01b3a7;
+  margin-right: 10px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1520px;
+  margin: 0 auto;
+}
+
+.footer_kontakt {
+  padding-top: 50px;
+}
+.footer_kontakt p {
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer_container {
+  height: 300px;
+  background-color: #162e44;
+}
+
+.footer_fast_links {
+  color: #ffffff;
+  padding-top: 50px;
+}
+.footer_fast_links p {
+  margin-left: 40px;
+}
+
+.footer_links {
+  margin-top: -30px;
+  display: flex;
+  justify-content: space-between;
+}
+.footer_links ul {
+  margin-left: 20px;
+  list-style: none;
+}
+.footer_links ul li::before {
+  content: "•"; /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #01b3a7; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: -1em; /* Also needed for space (tweak if needed) */
+  font-size: 22px;
+}
+.footer_links ul a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer_btn {
+  padding: 15px 20px;
+  margin-left: 40px;
+  background-color: #01b3a7;
+  border: none;
+  color: #ffffff;
+}
+
+.cpr_container {
+  margin-top: -20px;
+  background-color: #0f2030;
+  height: 50px;
+}
+
+.cpr {
+  max-width: 1520px;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+.cpr p {
+  color: gray;
+}
+
+.slideshow {
+  margin: 0 auto;
+  max-width: 1920px;
+  position: absolute;
+  transition: ease-in-out 1s;
+  z-index: 0;
+}
+
+.slideshowSlider {
+  white-space: nowrap;
+  display: flex;
+  flex-direction: column;
+}
+
+.image_wrapper {
+  display: block;
+  margin-top: -10px;
+  position: relative;
+}
+
+.image_text_container {
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 90%;
+  left: 10%;
+  transition: ease-in 2.5s;
+  opacity: 0;
+}
+
+.image_text_container.active {
+  opacity: 1;
+  top: 50%;
+}
+
+.image_title {
+  font-size: 25px;
+  margin: 0;
+}
+
+.image_content {
+  margin: 0;
+  font-size: 70px;
+}
+
+/*Slide Buttons */
+.slideshowDots {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  z-index: 9996;
+  display: flex;
+  flex-direction: column;
+}
+
+.slideshowDot {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 10px 25px;
+  background-color: rgba(128, 128, 128, 0.669);
+  cursor: pointer;
+}
+.slideshowDot:hover {
+  background-color: rgba(1, 179, 167, 0.7176470588);
+}
+
+.slideshowDot.active {
+  background-color: rgba(1, 179, 167, 0.7176470588);
+}
+
+header {
+  height: 900px;
+  position: relative;
+  overflow: hidden;
 }
