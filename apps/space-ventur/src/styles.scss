@@ -171,6 +171,11 @@ footer {
 }
 
 //Header og Slide
+header {
+    height: 900px;
+    position: relative;
+    overflow: hidden;
+   }
 
 .slideshow {
     margin: 0 auto;
@@ -239,8 +244,116 @@ footer {
   .slideshowDot.active {
     background-color: #01b3a7b7;
   }
-  header {
-    height: 900px;
+  //Vores tur section
+  .grey_background {
+    background-color: rgba(211, 211, 211, 0.221);
+    width: 100%;
+  }
+  .vores_tur_container {
+    max-width: 850px;
+    height: 600px;
+    margin: 0 auto;
+    position: relative;
+    
+  }
+  .vores_tur_btn1 {
+   
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    top: -50px;
+    
+  }
+  .vores_tur_btn2 {
+    position: absolute;
+    z-index: 4;
+    right: 0;
+    top: -50px;
+  }
+
+  .vores_tur_btn_image {
     position: relative;
     overflow: hidden;
-   }
+    &:hover span{
+        transition: ease-in-out 500ms;
+        -webkit-transform:scale(1.1);
+    }
+  }
+
+  .vores_tur_text {
+    position: absolute;
+    color: #ffffff;
+    left: 160px;
+    bottom: 15%;
+    z-index: 5;
+    font-size: 30px;
+    
+  }
+
+ 
+  
+
+  
+
+.svg_container {
+    position: absolute;
+    bottom: 10%;
+    left: 55%;
+    width: 50px;
+    overflow: hidden;
+    .arrow{
+        transition: ease-in-out 500ms;
+        transform: translateX(-22px);
+        cursor: pointer;
+    }
+       
+}
+
+.vores_tur_link {
+    position: absolute;
+    bottom: 13%;
+    left:44%;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    
+}
+
+//om os 
+.om_os_container {
+    padding-top: 100px;
+    max-width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.om_os_info {
+    position: relative;
+    max-width: 556px;
+    height: 382px;
+
+    h3{
+        color: #01b3a7;
+        &::after{
+        content:"";
+        width:100%;
+        height:4px;
+        left:0;
+        top: 90px;
+        position:absolute;
+        z-index:9;
+        background:linear-gradient(to right, #01b3a7 50%, rgba(211, 211, 211, 0.221) 50%);
+      }
+    }
+    
+}
+
+.om_os_btn {
+    position: absolute;
+    bottom: 20px;
+    padding: 20px 55px;
+    background-color: #01b3a7;
+    color: #fff;
+    border: none;
+}

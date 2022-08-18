@@ -40,7 +40,7 @@ const PictureSLider = ({slides}) => {
               <div
                 className="image_wrapper"
                 key={idx}
-              ><Image src={item.Image} alt="banner_image" width={1920} height={933} />
+              ><Image src={item.Image} alt="banner_image" width={1920} height={923} layout="fixed" />
               <div className={`image_text_container${index === idx ? " active" : ""}`}>
               <p className="image_title">{item.Title}</p>
               <p className="image_content">{item.Content}</p>
