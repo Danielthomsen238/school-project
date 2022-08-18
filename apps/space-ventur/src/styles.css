@@ -335,3 +335,38 @@ header {
   color: #fff;
   border: none;
 }
+
+.vores_team_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.team_person_container {
+  position: relative;
+  height: 180px;
+  width: 200px;
+  background-color: rgba(211, 211, 211, 0.221);
+}
+
+.team_person {
+  position: absolute;
+  bottom: 18px;
+  left: 15%;
+  right: 15%;
+}
+
+.team_image {
+  border: solid white 10px;
+  border-radius: 120px;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+}
+
+.team_title {
+  text-align: center;
+  margin-top: -300px;
+  margin-bottom: 200px;
+}

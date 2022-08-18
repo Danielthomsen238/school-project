@@ -3,6 +3,7 @@ import VoresTur from '../components/VoresTur';
 import axios from 'axios';
 import PictureSLider from '../components/PictureSlider';
 import LidtOmOs from '../components/Omos';
+import VoresTeam from '../components/VoresTeam';
 
 
 const Index = () => {
@@ -26,6 +27,7 @@ const Index = () => {
       <VoresTur />
     </div>
     <LidtOmOs />
+     <VoresTeam />
     </>
   )
 }
