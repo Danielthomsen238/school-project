@@ -12,6 +12,33 @@ import InstaLogo from "../src/instaLogo.svg"
 
 
 const Navbar = () => {
+  const links = [
+    {href: "/",
+     link: "Hjem"
+    },
+    {href: "/",
+    link: "Rumfærgen"
+    },
+    {href: "/",
+    href2: "/",
+    href3: "/",
+    link: "Ture",
+    link2: "Månen",
+    link3: "Mars"
+    },
+    {href: "/",
+    link: "Galleri"
+    },
+    {href: "/",
+    link: "Sikkerhed"
+    },
+    {href: "/",
+    link: "Kontakt"
+    },
+  ]
+
+    
+  const [active, setActive] = useState("not set");
 
 // When the user scrolls the page, execute class add on nav
 const [scrollPosition, setScrollPosition] = useState(0);
@@ -27,28 +54,34 @@ const [scrollPosition, setScrollPosition] = useState(0);
     };
   }, []);
 
+console.log(scrollPosition)
     return ( 
     <div>
-    <div className="logoContainer">
+    <div id="top" className="logoContainer">
         <div className="logo">
         <Image src={Logo} alt="Logo" width={188*1.5} height={18*1.5} />
         </div>
     </div>
     <nav className={scrollPosition >= 50 ? "sticky" : ""}>
-     <div className="linkContainer">
-     <Link href="/"><a>Hjem</a></Link>
-     <Link href="/"><a>RumFærgen</a></Link>
-     <Link href="/"><a>Ture</a></Link>
-     <Link href="/"><a>Galleri</a></Link>
-     <Link href="/"><a>Sikkerhed</a></Link>
-     <Link href="/"><a>Kontakt</a></Link>
+     <ul className="linkContainer">
+     {links?.map((item, index) => {
+      return (
+        <>
+        {index === 2 ? (<li className={`nav_link ${active == item.link && 'active'}`} onClick={() => setActive(item.link)}><Link href={`${item.href}`}><a className="top_link">{item.link}</a></Link><ul><li><Link href={`${item.href2}`}><a className="sub_link">{item.link2}</a></Link></li><li><Link href={`${item.href3}`}><a className="sub_link">{item.link3}</a></Link></li></ul></li>) :
+         (
+          <li className={`nav_link ${active == item.link && 'active'}`} onClick={() => setActive(item.link)}><Link href={`${item.href}`}><a className="top_link">{item.link}</a></Link></li>
+         )
+        }
+        </>
+      )
+     })}
      <div className="iconContainer">
        <div><Link href="https://www.facebook.com/"><Image src={FacebookLogo} alt="facebook_icon" width={25} height={25}/></Link></div>
         <div><Link href="https://www.twitter.com/"><Image src={TwitterLogo} alt="twitter_icon" width={25} height={25}/></Link></div>
         <div><Link href="https://www.google.com/"><Image src={GoogleLogo} alt="google_icon" width={25} height={25}/></Link></div>
         <div><Link href="https://www.instagram.com/"><Image src={InstaLogo} alt="instagram_icon" width={25} height={25}/></Link></div>
      </div>
-     </div>
+     </ul>
      
     </nav>
     </div> );

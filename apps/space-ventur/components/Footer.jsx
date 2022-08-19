@@ -15,12 +15,26 @@ const Footer = () => {
         const footer = response.data
         getData(footer)})
     },[])
+
+    // When the user scrolls the page, execute class add on btn in footer
+const [scrollPosition, setScrollPosition] = useState(0);
+const handleScroll = () => {
+  const position = window.pageYOffset;
+  setScrollPosition(position);
+};
+useEffect(() => {
+  window.addEventListener("scroll", handleScroll);
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
     return ( 
         <>
         <div className="footer_container">
         <footer>
             <div className="footer_kontakt">
-                <p>KONTAKT</p>
+                <h4>KONTAKT</h4>
                 
                 {footData.data?.map(item =>{
                     return (
@@ -47,13 +61,15 @@ const Footer = () => {
                 </ul>
             </div>
             <button className="footer_btn">Kontakt</button>
-            </div>
+            </div> 
+            <div className={scrollPosition >= 1550 ? "to_top_btn_active" : "to_top_btn"}><Link href="#top"><a>^</a></Link></div>
         </footer>
         
         </div>
         <div className="cpr_container">
             <div className="cpr">
             <p>® 2021 Space Venture. All rights reserved</p>
+           
             </div>
         </div>
         </>

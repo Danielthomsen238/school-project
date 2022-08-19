@@ -4,6 +4,7 @@ import axios from 'axios';
 import PictureSLider from '../components/PictureSlider';
 import LidtOmOs from '../components/Omos';
 import VoresTeam from '../components/VoresTeam';
+import NewsMail from '../components/NewMail';
 
 
 const Index = () => {
@@ -28,6 +29,7 @@ const Index = () => {
     </div>
     <LidtOmOs />
      <VoresTeam />
+     <NewsMail />
     </>
   )
 }
