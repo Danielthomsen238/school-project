@@ -1,0 +1,64 @@
+.ture_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1920px;
+    height: 400px;
+    background-image: url("../src/banner-ture.jpg");
+    background-size: 150%;
+    background-position: center -100px;
+}
+
+.ture_title {
+    color: white;
+    font-size: 40px;
+}
+.ture_container {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.ture_info_container {
+    display: flex;
+    justify-content: center;
+}
+
+.tur_info_container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    border: solid 2px rgba(128, 128, 128, 0.185);
+}
+.tur_price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -17px;
+    right: 0;;
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(45deg, transparent 15px, #01b3a7 0);
+    color: white;
+}
+.tur_info {
+    max-width: 400px;
+    button {
+        border: black solid 2px;
+        background-color: white;
+        color: black;
+        padding: 20px 40px;
+        cursor: pointer;
+        &:hover {
+            background-color: black;
+            color: white;
+        }
+    }
+}
+
+.tur_content1 {
+    color: rgba(128, 128, 128, 0.598);
+}

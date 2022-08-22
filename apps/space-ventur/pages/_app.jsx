@@ -1,7 +1,11 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import '../src/styles.css';
+import '../src/index_styles.css';
+import '../src/rumfærgen_styles.css'
+import '../src/ture_styles.css'
+import '../src/moon_styles.css'
+import '../src/mars_styles.css'
 import { useState, useEffect } from 'react';
 
 const CustomApp = ({ Component, pageProps }) => {

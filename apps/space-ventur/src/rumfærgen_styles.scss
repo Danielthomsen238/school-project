@@ -1,0 +1,61 @@
+.rumfærgen_banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1920px;
+    height: 400px;
+    background-image: url("../src/banner-spaceship.jpg");
+    background-size: 130%;
+    background-position: center -200px;
+}
+.rumfærgen_content_container {
+    max-width: 1300px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rumfærgen_info {
+    position: relative;
+    max-width: 656px;
+    height: 382px;
+
+    h2 {
+        margin: 0;
+        font-size: 80px;
+        color: rgba(211, 211, 211, 0.721);
+    }
+    h3 {
+        color: #01b3a7;
+        font-size: 26px;
+        &::after{
+        content:"";
+        width:100%;
+        height:4px;
+        left:0;
+        top: 155px;
+        position:absolute;
+        z-index:9;
+        background:linear-gradient(to right, #01b3a7 60%, rgba(211, 211, 211, 0.221) 40%);
+      }
+    }
+}
+.rumfærgen_title {
+    color: white;
+}
+
+.rumfærgen_galleri_container {
+    text-align: center;
+    h2 {
+        margin-top: -50px;
+        font-size: 40px;
+    }
+}
+
+.rumfærgen_images_container {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}

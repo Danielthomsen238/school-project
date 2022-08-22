@@ -16,10 +16,10 @@ const Navbar = () => {
     {href: "/",
      link: "Hjem"
     },
-    {href: "/",
+    {href: "/rumfaergen",
     link: "Rumfærgen"
     },
-    {href: "/",
+    {href: "/ture/",
     href2: "/",
     href3: "/",
     link: "Ture",
