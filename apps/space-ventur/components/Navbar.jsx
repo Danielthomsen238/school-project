@@ -20,13 +20,13 @@ const Navbar = () => {
     link: "Rumfærgen"
     },
     {href: "/ture/",
-    href2: "/",
-    href3: "/",
+    href2: "/ture/moon",
+    href3: "/ture/mars",
     link: "Ture",
     link2: "Månen",
     link3: "Mars"
     },
-    {href: "/",
+    {href: "/galleri",
     link: "Galleri"
     },
     {href: "/",

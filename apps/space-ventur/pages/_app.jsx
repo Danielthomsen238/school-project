@@ -6,6 +6,7 @@ import '../src/rumfærgen_styles.css'
 import '../src/ture_styles.css'
 import '../src/moon_styles.css'
 import '../src/mars_styles.css'
+import '../src/galleri_styles.css'
 import { useState, useEffect } from 'react';
 
 const CustomApp = ({ Component, pageProps }) => {

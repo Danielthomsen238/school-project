@@ -62,7 +62,7 @@ useEffect(() => {
             </div>
             <button className="footer_btn">Kontakt</button>
             </div> 
-            <div className={scrollPosition >= 1550 ? "to_top_btn_active" : "to_top_btn"}><Link href="#top"><a>^</a></Link></div>
+            <div className={scrollPosition >= 1550 ? "to_top_btn_active" : "to_top_btn"}><Link href="/"><a>^</a></Link></div>
         </footer>
         
         </div>
