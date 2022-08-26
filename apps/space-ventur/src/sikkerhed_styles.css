@@ -1,0 +1,69 @@
+.sikkerhed_container {
+  margin: 0 auto;
+  max-width: 1200px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sikkerhed_info {
+  max-width: 700px;
+}
+.sikkerhed_info h2 {
+  display: inline;
+  border-bottom: solid 3px #01b3a7;
+  padding-bottom: 15px;
+  font-size: 30px;
+}
+.sikkerhed_info p {
+  padding-top: 30px;
+  font-size: 20px;
+}
+
+.sikkerhed_to_top_btn {
+  transition: ease-in-out 500ms;
+  position: absolute;
+  background-color: #01b3a7;
+  bottom: -200px;
+  right: 50px;
+  padding: 0 15px;
+  font-size: 40px;
+  cursor: pointer;
+  border-radius: 2px;
+  text-decoration: none;
+  color: white;
+}
+.sikkerhed_to_top_btn a {
+  text-decoration: none;
+  color: white;
+}
+.sikkerhed_to_top_btn:hover {
+  background-color: black;
+}
+
+@media only screen and (max-width: 600px) {
+  .sikkerhed_info h2 {
+    font-size: 25px;
+  }
+  .sikkerhed_to_top_btn {
+    transition: ease-in-out 500ms;
+    position: absolute;
+    background-color: #01b3a7;
+    bottom: -350px;
+    right: 50px;
+    padding: 0 15px;
+    font-size: 40px;
+    cursor: pointer;
+    border-radius: 2px;
+    text-decoration: none;
+    color: white;
+  }
+  .sikkerhed_to_top_btn a {
+    text-decoration: none;
+    color: white;
+  }
+  .sikkerhed_to_top_btn:hover {
+    background-color: black;
+  }
+}

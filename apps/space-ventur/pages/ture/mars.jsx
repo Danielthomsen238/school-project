@@ -20,8 +20,8 @@ const Mars = () => {
             return (
                 index === 1 ? (<section key={index} className="mars_container">
                 <div className="mars_images_container">
-                    <Image src={item.Image1} alt="mars_image_1" width={600} height={337} layout="fixed" />
-                    <Image src={item.Image2} alt="mars_image_2" width={600} height={442} layout="fixed" />
+                    <Image src={item.Image1} alt="mars_image_1" width={500} height={337} layout="fixed" />
+                    <Image src={item.Image2} alt="mars_image_2" width={500} height={442} layout="fixed" />
                 </div>
                 <div className="mars_info1">
                     <h2>{item.Destination}</h2>

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import axios from "axios";
+import Link from "next/link";
 
 const RumfaergGalleri = () => {
     const [rumfaergGalleriData, getRumfaergGalleriData] = useState([])
@@ -10,6 +11,7 @@ const RumfaergGalleri = () => {
       const rumfaergGalleri = response.data
       getRumfaergGalleriData(rumfaergGalleri)})
   },[])
+
 
     return (
         <>
@@ -23,6 +25,7 @@ const RumfaergGalleri = () => {
                 )
             })}
             </div>
+            
         </section>
         </>
      );

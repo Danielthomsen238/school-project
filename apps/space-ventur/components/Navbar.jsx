@@ -8,6 +8,8 @@ import FacebookLogo from "../src/facebookLogo.svg"
 import TwitterLogo from "../src/twitterLogo.svg"
 import GoogleLogo from "../src/googleLogo.svg"
 import InstaLogo from "../src/instaLogo.svg"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -29,16 +31,17 @@ const Navbar = () => {
     {href: "/galleri",
     link: "Galleri"
     },
-    {href: "/",
+    {href: "/sikkerhed",
     link: "Sikkerhed"
     },
-    {href: "/",
+    {href: "/kontakt",
     link: "Kontakt"
     },
   ]
 
     
   const [active, setActive] = useState("not set");
+  const [burgerShow, setBurgerShow] = useState(false);
 
 // When the user scrolls the page, execute class add on nav
 const [scrollPosition, setScrollPosition] = useState(0);
@@ -54,7 +57,6 @@ const [scrollPosition, setScrollPosition] = useState(0);
     };
   }, []);
 
-console.log(scrollPosition)
     return ( 
     <div>
     <div id="top" className="logoContainer">
@@ -62,7 +64,7 @@ console.log(scrollPosition)
         <Image src={Logo} alt="Logo" width={188*1.5} height={18*1.5} />
         </div>
     </div>
-    <nav className={scrollPosition >= 50 ? "sticky" : ""}>
+    <nav className={scrollPosition >= 50 ? "navbar sticky" : "navbar"}>
      <ul className="linkContainer">
      {links?.map((item, index) => {
       return (
@@ -83,6 +85,20 @@ console.log(scrollPosition)
      </div>
      </ul>
      
+    </nav>
+    <nav className={scrollPosition >= 50 ? "burger_menu sticky" : "burger_menu"}>
+    <FontAwesomeIcon className="burger_icon" icon={faBars} onClick={() => setBurgerShow(state => !state)}/>
+      <ul className="burger_link_container" style={ burgerShow ? { display: "block"} : { display: "none" } }>{links?.map((item, index) => {
+      return (
+        <>
+        {index === 2 ? (<li key={index} className={`burger_nav_link ${active == item.link && 'active'}`} onClick={() => setActive(item.link)}><Link href={`${item.href}`}><a className="burger_top_link">{item.link}</a></Link><ul><li><Link href={`${item.href2}`}><a className="burger_sub_link">{item.link2}</a></Link></li><li><Link href={`${item.href3}`}><a className="burger_sub_link">{item.link3}</a></Link></li></ul></li>) :
+         (
+          <li key={index} className={`burger_nav_link ${active == item.link && 'active'}`} onClick={() => setActive(item.link)}><Link href={`${item.href}`}><a className="burger_top_link">{item.link}</a></Link></li>
+         )
+        }
+        </>
+      )
+     })}</ul>
     </nav>
     </div> );
 }

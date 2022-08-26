@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/link-passhref */
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -16,19 +16,7 @@ const Footer = () => {
         getData(footer)})
     },[])
 
-    // When the user scrolls the page, execute class add on btn in footer
-const [scrollPosition, setScrollPosition] = useState(0);
-const handleScroll = () => {
-  const position = window.pageYOffset;
-  setScrollPosition(position);
-};
-useEffect(() => {
-  window.addEventListener("scroll", handleScroll);
 
-  return () => {
-    window.removeEventListener("scroll", handleScroll);
-  };
-}, []);
     return ( 
         <>
         <div className="footer_container">
@@ -51,18 +39,19 @@ useEffect(() => {
                 <p>HURTIG LINKS</p>
             <div className="footer_links">
                 <ul>
-                    <li><Link href="/"><a>Rumfærgen</a></Link></li>
-                    <li><Link href="/"><a>Ture</a></Link></li>
-                    <li><Link href="/"><a>Vores team</a></Link></li>
+                    <li><Link href="/rumfaergen"><a>Rumfærgen</a></Link></li>
+                    <li><Link href="/ture"><a>Ture</a></Link></li>
+                    <li><Link href="/kontakt"><a>Vores team</a></Link></li>
                 </ul>
                 <ul>
-                <li><Link href="/"><a>Galleri</a></Link></li>
-                <li><Link href="/"><a>Sikkerhed</a></Link></li>
+                <li><Link href="/galleri"><a>Galleri</a></Link></li>
+                <li><Link href="/sikkerhed"><a>Sikkerhed</a></Link></li>
                 </ul>
             </div>
-            <button className="footer_btn">Kontakt</button>
+            <Link href="/kontakt"><button className="footer_btn">Kontakt</button></Link>
+            
             </div> 
-            <div className={scrollPosition >= 1550 ? "to_top_btn_active" : "to_top_btn"}><Link href="/"><a>^</a></Link></div>
+           
         </footer>
         
         </div>

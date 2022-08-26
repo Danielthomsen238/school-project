@@ -71,3 +71,17 @@
         padding-right: 20px;
     }
 }
+
+@media only screen and (max-width: 600px){ 
+    .moon_container {
+        flex-direction: column;
+        justify-content: space-evenly;
+        height: 1800px;
+    }
+    .moon_images_container {
+        margin: 0 auto;
+    }
+    .moon_info1 {
+        margin: 0 auto;
+    }
+}

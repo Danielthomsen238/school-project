@@ -21,7 +21,7 @@ const VoresTeam = () => {
                 <div key={index} className="team_person_container">
                     <div className="team_person">
                    <div className="team_image"><Image src={item.Image} alt="team_person" width={120} height={120} layout="fixed"/></div>
-                   <p className="person_name">{item.Name}</p>
+                   <p className="person_name">{item.Navn}</p>
                    <p className="person_title">{item.Title}</p>
                    <p className="person_tlf">{item.Tlf}</p>
                 </div>

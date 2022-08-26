@@ -62,3 +62,11 @@
 .tur_content1 {
     color: rgba(128, 128, 128, 0.598);
 }
+
+@media only screen and (max-width: 600px){ 
+    .ture_banner {
+        height: 170px;
+        background-size: 150%;
+        background-position: center;
+    }
+}

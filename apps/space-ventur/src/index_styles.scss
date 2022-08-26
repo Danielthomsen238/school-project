@@ -34,7 +34,7 @@ z-index: 9999;
   }
 }
 .linkContainer {
-    display: flex;
+  display: flex;
   justify-content: flex-start;
   align-content: center;
   max-width: 1520px;
@@ -51,7 +51,7 @@ div {
 }
 }
 .nav_link.active {
-    a {
+    .top_link {
         background-color: rgba(211, 211, 211, 0.429);
         transition: ease-in-out 500ms;
         &::before{
@@ -79,8 +79,8 @@ div {
         transform: translateX(0px);
       }
     }
-
-nav {
+//pc navbar
+.navbar {
     background-color: #162e44;
     height: 60px;
     position: relative;
@@ -171,6 +171,86 @@ nav {
    
 }
 
+//burger menu
+
+.burger_menu{
+    position: relative;
+    background-color: #162e44;
+    z-index: 25;
+    .burger_link_container {
+        background-color: #162e44;
+        position: absolute;
+        top: 20px;
+        z-index: 20;
+        padding: 0;
+        li {
+            list-style: none;
+        }
+        .burger_nav_link {
+            position: relative;
+            &:hover {
+                background-color: rgba(211, 211, 211, 0.429);
+                &::after{
+                    content:"";
+                    width: 5px;
+                    height: 100%;
+                    left: 15px;
+                    top: 0;
+                    position:absolute;
+                    z-index:11;
+                    background:#01b3a7;
+                    opacity: 0;
+                    animation: subEffect 300ms ease-in-out forwards;
+                }
+            }
+            
+            padding: 5px 40px 5px 20px;
+              ul {
+                display: none;
+              }
+              &:hover {
+                ul {
+                    display: block;
+                    margin-left: -30px;
+                }
+              }
+            .burger_top_link {
+                color: #fff;
+                padding: 5px 40px 5px 20px;
+                text-decoration: none;
+               
+            }
+
+            .burger_sub_link {
+                color: #fff;
+                padding: 5px 40px 5px 20px;
+                text-decoration: none;
+                
+            }
+        }
+    }
+}
+.burger_icon {
+    display: none;
+    margin-left: 40px;
+    font-size: 40px;
+    color: #01b3a7;
+}
+.burger_nav_link.active {
+    background-color: rgba(211, 211, 211, 0.429);
+    &::after{
+        content:"";
+        width: 5px;
+        height: 100%;
+        left: 15px;
+        top: 0;
+        position:absolute;
+        z-index:11;
+        background:#01b3a7;
+        opacity: 0;
+        animation: subEffect 300ms ease-in-out forwards;
+    }
+}
 @keyframes subEffect {
 
     from {
@@ -200,7 +280,7 @@ nav {
     .iconContainer {
         margin-left: 20%;
     }
-    nav {
+    .navbare {
     a {
         padding: 18px 36px 8px 0;
         font-size: 20px;
@@ -212,13 +292,16 @@ nav {
     .iconContainer {
         margin-left: 10px;
     }
-    nav {
+    .narbar {
     a {
         padding: 20px 20px 8px 0;
         font-size: 16px;
     }
 }
+
 }
+
+
 
 
 //footer
@@ -307,9 +390,9 @@ footer {
         color: white;
     }
     transition: ease-in-out 500ms;
-    position: fixed;
+    position: absolute;
     background-color: #01b3a7;
-    bottom: -200px;
+    bottom: 0px;
     right: 50px;
     padding: 0 15px;
     font-size: 40px;
@@ -436,6 +519,9 @@ header {
     width: 100%;
   }
   .vores_tur_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     max-width: 850px;
     height: 600px;
     margin: 0 auto;
@@ -564,29 +650,35 @@ header {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    height: 300px;
+    // height: 300px;
 }
 
 .team_person_container {
     position: relative;
     height: 180px;
     width: 200px;
+    margin-bottom: 100px;
     background-color: rgba(211, 211, 211, 0.221);
+    &:hover .team_image {
+        border: solid #01b3a7 2px;
+    }
 }
 .team_person {
     position: absolute;
     bottom: 18px;
-    left: 15%;
+    left: 20%;
     right: 15%;
     text-align: center;
 }
 .team_image {
-    border: solid white 10px;
+    outline: 10px solid white;
     border-radius: 120px;
     width: 120px;
     height: 120px;
     overflow: hidden;
+    
 }
 
 .team_title {
@@ -691,3 +783,51 @@ align-items: center;
     opacity: 0;
 }
 
+
+
+@media only screen and (max-width: 600px){
+    header {
+        display: none;
+    }
+    .navbar {
+   display: none;
+}
+.burger_icon {
+    display: block;
+}
+.vores_tur_btn1, .vores_tur_btn2 {
+   position: static;
+   
+}
+
+.vores_tur_text {
+    left: 37%;
+}
+
+.grey_background {
+    height: 1200px;
+}
+
+.svg_container {
+    bottom: -500px;
+    z-index: 800;
+}
+.vores_tur_link {
+    bottom: -480px;
+    left: 35%;
+}
+.om_os_container {
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+}
+.vores_team_container {
+    align-items: flex-end;
+    height: 800px;
+}
+
+.team_title {
+    margin: 0;
+    margin-top: 200px;
+}
+}

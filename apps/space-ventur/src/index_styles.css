@@ -47,11 +47,11 @@ html, body {
   cursor: pointer;
 }
 
-.nav_link.active a {
+.nav_link.active .top_link {
   background-color: rgba(211, 211, 211, 0.429);
   transition: ease-in-out 500ms;
 }
-.nav_link.active a::before {
+.nav_link.active .top_link::before {
   content: "";
   width: 92%;
   height: 4px;
@@ -85,20 +85,20 @@ html, body {
     transform: translateX(0px);
   }
 }
-nav {
+.navbar {
   background-color: #162e44;
   height: 60px;
   position: relative;
   z-index: 9999;
 }
-nav ul {
+.navbar ul {
   padding: 14px;
   list-style-type: none;
 }
-nav ul li {
+.navbar ul li {
   position: relative;
 }
-nav ul li .top_link {
+.navbar ul li .top_link {
   color: #ffffff;
   text-decoration: none;
   padding: 14px 14px;
@@ -106,10 +106,10 @@ nav ul li .top_link {
   font-size: 28px;
   transition: ease-out 600ms;
 }
-nav ul li .top_link:hover {
+.navbar ul li .top_link:hover {
   background-color: rgba(211, 211, 211, 0.429);
 }
-nav ul li .top_link:hover::after {
+.navbar ul li .top_link:hover::after {
   content: "";
   width: 92%;
   height: 4px;
@@ -121,10 +121,10 @@ nav ul li .top_link:hover::after {
           animation: navEffect 600ms ease-out;
   background: #01b3a7;
 }
-nav ul li ul {
+.navbar ul li ul {
   display: none;
 }
-nav ul li:hover ul {
+.navbar ul li:hover ul {
   display: block;
   position: absolute;
   z-index: 10;
@@ -133,30 +133,107 @@ nav ul li:hover ul {
   padding: 0;
   background-color: #ffffff;
 }
-nav ul li:hover ul li {
+.navbar ul li:hover ul li {
   width: 150px;
   padding: 14px 0;
 }
-nav ul li:hover ul li:hover {
+.navbar ul li:hover ul li:hover {
   background-color: rgba(211, 211, 211, 0.429);
 }
-nav ul li:hover ul li .sub_link {
+.navbar ul li:hover ul li .sub_link {
   color: black;
   text-decoration: none;
   padding: 14px 14px;
   font-size: 20px;
   transition: ease-out 600ms;
 }
-nav ul li:hover ul li .sub_link:hover {
+.navbar ul li:hover ul li .sub_link:hover {
   margin-left: 10px;
   transition: ease-in-out 300ms;
 }
-nav ul li:hover ul li .sub_link:hover::after {
+.navbar ul li:hover ul li .sub_link:hover::after {
   content: "";
   width: 5px;
   height: 50%;
   left: 15px;
   top: 13px;
+  position: absolute;
+  z-index: 11;
+  background: #01b3a7;
+  opacity: 0;
+  -webkit-animation: subEffect 300ms ease-in-out forwards;
+          animation: subEffect 300ms ease-in-out forwards;
+}
+
+.burger_menu {
+  position: relative;
+  background-color: #162e44;
+  z-index: 25;
+}
+.burger_menu .burger_link_container {
+  background-color: #162e44;
+  position: absolute;
+  top: 20px;
+  z-index: 20;
+  padding: 0;
+}
+.burger_menu .burger_link_container li {
+  list-style: none;
+}
+.burger_menu .burger_link_container .burger_nav_link {
+  position: relative;
+  padding: 5px 40px 5px 20px;
+}
+.burger_menu .burger_link_container .burger_nav_link:hover {
+  background-color: rgba(211, 211, 211, 0.429);
+}
+.burger_menu .burger_link_container .burger_nav_link:hover::after {
+  content: "";
+  width: 5px;
+  height: 100%;
+  left: 15px;
+  top: 0;
+  position: absolute;
+  z-index: 11;
+  background: #01b3a7;
+  opacity: 0;
+  -webkit-animation: subEffect 300ms ease-in-out forwards;
+          animation: subEffect 300ms ease-in-out forwards;
+}
+.burger_menu .burger_link_container .burger_nav_link ul {
+  display: none;
+}
+.burger_menu .burger_link_container .burger_nav_link:hover ul {
+  display: block;
+  margin-left: -30px;
+}
+.burger_menu .burger_link_container .burger_nav_link .burger_top_link {
+  color: #fff;
+  padding: 5px 40px 5px 20px;
+  text-decoration: none;
+}
+.burger_menu .burger_link_container .burger_nav_link .burger_sub_link {
+  color: #fff;
+  padding: 5px 40px 5px 20px;
+  text-decoration: none;
+}
+
+.burger_icon {
+  display: none;
+  margin-left: 40px;
+  font-size: 40px;
+  color: #01b3a7;
+}
+
+.burger_nav_link.active {
+  background-color: rgba(211, 211, 211, 0.429);
+}
+.burger_nav_link.active::after {
+  content: "";
+  width: 5px;
+  height: 100%;
+  left: 15px;
+  top: 0;
   position: absolute;
   z-index: 11;
   background: #01b3a7;
@@ -201,7 +278,7 @@ nav ul li:hover ul li .sub_link:hover::after {
   .iconContainer {
     margin-left: 20%;
   }
-  nav a {
+  .navbare a {
     padding: 18px 36px 8px 0;
     font-size: 20px;
   }
@@ -210,7 +287,7 @@ nav ul li:hover ul li .sub_link:hover::after {
   .iconContainer {
     margin-left: 10px;
   }
-  nav a {
+  .narbar a {
     padding: 20px 20px 8px 0;
     font-size: 16px;
   }
@@ -294,9 +371,9 @@ footer {
 
 .to_top_btn {
   transition: ease-in-out 500ms;
-  position: fixed;
+  position: absolute;
   background-color: #01b3a7;
-  bottom: -200px;
+  bottom: 0px;
   right: 50px;
   padding: 0 15px;
   font-size: 40px;
@@ -432,6 +509,9 @@ header {
 }
 
 .vores_tur_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   max-width: 850px;
   height: 600px;
   margin: 0 auto;
@@ -546,27 +626,31 @@ header {
   max-width: 1200px;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
-  height: 300px;
 }
 
 .team_person_container {
   position: relative;
   height: 180px;
   width: 200px;
+  margin-bottom: 100px;
   background-color: rgba(211, 211, 211, 0.221);
+}
+.team_person_container:hover .team_image {
+  border: solid #01b3a7 2px;
 }
 
 .team_person {
   position: absolute;
   bottom: 18px;
-  left: 15%;
+  left: 20%;
   right: 15%;
   text-align: center;
 }
 
 .team_image {
-  border: solid white 10px;
+  outline: 10px solid white;
   border-radius: 120px;
   width: 120px;
   height: 120px;
@@ -680,4 +764,46 @@ header {
 
 .hidden {
   opacity: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  header {
+    display: none;
+  }
+  .navbar {
+    display: none;
+  }
+  .burger_icon {
+    display: block;
+  }
+  .vores_tur_btn1, .vores_tur_btn2 {
+    position: static;
+  }
+  .vores_tur_text {
+    left: 37%;
+  }
+  .grey_background {
+    height: 1200px;
+  }
+  .svg_container {
+    bottom: -500px;
+    z-index: 800;
+  }
+  .vores_tur_link {
+    bottom: -480px;
+    left: 35%;
+  }
+  .om_os_container {
+    flex-direction: column;
+    justify-content: center;
+    height: 700px;
+  }
+  .vores_team_container {
+    align-items: flex-end;
+    height: 800px;
+  }
+  .team_title {
+    margin: 0;
+    margin-top: 200px;
+  }
 }

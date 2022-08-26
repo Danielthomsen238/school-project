@@ -73,3 +73,17 @@
   padding-top: 10px;
   padding-right: 20px;
 }
+
+@media only screen and (max-width: 600px) {
+  .mars_container {
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 1800px;
+  }
+  .mars_images_container {
+    margin: 0 auto;
+  }
+  .mars_info1 {
+    margin: 0 auto;
+  }
+}

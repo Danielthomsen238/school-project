@@ -21,8 +21,8 @@ const Månen = () => {
             return (
                 index === 0 ? (<section key={index} className="moon_container">
                 <div className="moon_images_container">
-                    <Image src={item.Image1} alt="moon_image_1" width={600} height={337} layout="fixed" />
-                    <Image src={item.Image2} alt="moon_image_2" width={600} height={442} layout="fixed" />
+                    <Image src={item.Image1} alt="moon_image_1" width={500} height={337} layout="fixed" />
+                    <Image src={item.Image2} alt="moon_image_2" width={500} height={442} layout="fixed" />
                 </div>
                 <div className="moon_info1">
                     <h2>{item.Destination}</h2>

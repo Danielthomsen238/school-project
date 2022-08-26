@@ -1,6 +1,22 @@
 import excuteQuery from "../../src/db"
 
 async function handler(req, res) {
+    if(req.method === "DELETE"){
+        const {id} = req.body
+        if(!id){
+            res.status(422).json({message: "Invalid Data"})
+            return
+        }
+        await excuteQuery(`DELETE FROM nyhedsbrev WHERE id = '${id}' `)
+        res.status(201).json({message: "post delete"})
+        return
+    }
+
+    if(req.method === "GET") {
+        const data = await excuteQuery(`SELECT * from nyhedsbrev`)
+        res.status(201).json({message: "data fetched", data})
+        return
+    }
 
     if(req.method === "POST") {
         const {email} = req.body
