@@ -15,8 +15,8 @@ const VoresTur = () => {
         
         <>
         <section className="vores_tur_container">
-            <div className="vores_tur_btn1"><Link href="/ture/moon"><div className="vores_tur_btn_image"><Image src={moonBtn} alt="moon_button" width={300} height={500} layout="fixed" /><p className="vores_tur_text">Månen</p></div></Link></div>
-            <div className="vores_tur_btn2"><Link href="/ture/mars"><div className="vores_tur_btn_image"><Image src={marsBtn} alt="mars_button"  width={300} height={500}/><p className="vores_tur_text">Mars</p></div></Link></div> 
+            <div className="vores_tur_btn1"><Link href="/ture/moon"><div className="vores_tur_btn_image"><Image src={moonBtn} alt="moon_button" width={400} height={500} layout="fixed" /><p className="vores_tur_text">Månen</p></div></Link></div>
+            <div className="vores_tur_btn2"><Link href="/ture/mars"><div className="vores_tur_btn_image"><Image src={marsBtn} alt="mars_button"  width={400} height={500}/><p className="vores_tur_text">Mars</p></div></Link></div> 
              <div className="svg_container"><Link href="/ture/"><div
              style={{
           transform: isShown ? `translateX(0px)` : `translateX(-22px)`

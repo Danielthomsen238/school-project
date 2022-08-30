@@ -4,6 +4,10 @@
   "projects": {
     "forum": "apps/forum",
     "forum-e2e": "apps/forum-e2e",
+    "google-maps": "apps/google-maps",
+    "google-maps-e2e": "apps/google-maps-e2e",
+    "nextjs-api": "apps/nextjs-api",
+    "nextjs-api-e2e": "apps/nextjs-api-e2e",
     "space-ventur": "apps/space-ventur",
     "space-ventur-e2e": "apps/space-ventur-e2e"
   }
