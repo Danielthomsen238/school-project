@@ -6,6 +6,8 @@
     "forum-e2e": "apps/forum-e2e",
     "google-maps": "apps/google-maps",
     "google-maps-e2e": "apps/google-maps-e2e",
+    "nextjs-accesstoken": "apps/nextjs-accesstoken",
+    "nextjs-accesstoken-e2e": "apps/nextjs-accesstoken-e2e",
     "nextjs-api": "apps/nextjs-api",
     "nextjs-api-e2e": "apps/nextjs-api-e2e",
     "space-ventur": "apps/space-ventur",

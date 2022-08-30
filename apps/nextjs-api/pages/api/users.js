@@ -35,7 +35,7 @@ if(req.method === "POST"){
 
 }    
 if(req.method === "GET"){
-    const { token, id } = req.body 
+    const { token, id } = req.headers
     if(!token|| !id ) {
         res.status(422).json({message: "No token or id, access denied"})
         return
