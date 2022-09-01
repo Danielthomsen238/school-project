@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #64626268;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #a3a3a3bd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+#__next {
+  position: relative;
+  z-index: -9999;
+}
+body {
+  position: relative;
+  z-index: -9998;
+}
+//background
+.container {
+  z-index: -3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background-color: #18004B;
+}
+
+.dot_1 {
+  z-index: -2;
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  border-radius: 150px;
+  width: 252px;
+  height: 252px;
+  background: linear-gradient(137deg, rgba(204,50,50,1) 60%, rgba(204,50,50,0.5102415966386555) 100%);
+}
+
+.dot_2 {
+  z-index: -1;
+  position: absolute;
+  bottom: 15%;
+  right: 25%;
+  border-radius: 150px;
+  width: 252px;
+  height: 252px;
+  background: linear-gradient(328deg, rgba(51,66,204,1) 58%, rgba(51,66,204,0.5270483193277311) 100%);
+}
+
+//To do list
+
+.to_do_list_container {
+  border-radius: 20px;
+  width: 800px;
+  min-width: 300px;
+  height: 60vh;
+  background-color: #64626268;
+  backdrop-filter: blur(5px);
+  box-shadow: 0px 0px 5px 2px rgba(120,117,117,0.75);
+}
+
+.top_bar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 8vh;
+  border-radius: 20px 20px 0 0;
+  background-color: #64626268;
+}
+
+.mid_container {
+  width: 100%;
+  height: 44vh;
+  overflow: scroll;
+  overflow-x: hidden;
+ 
+}
+
+.bottom_bar {
+  position: relative;
+  width: 100%;
+  height: 8vh;
+  border-radius: 0 0 20px 20px;
+  background-color: #64626268;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tasks_container {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: 22px;
+  list-style: none;
+  color: #fff;
+}
+
+.tasks_done {
+  background-color: #3342CC;
+  height: 2rem;
+  width: 9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+.tasks_count {
+  background-color: #3342CC;
+  height: 2rem;
+  width: 6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.tasks_delete {
+  background-color: #CC3232;
+  height: 2rem;
+  width: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  color: white;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.white_dot {
+  margin:0 -15px 0 10px;
+  background-color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  color: #3342CC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add_task {
+  width: 55%;
+  height: 3rem;
+  border-radius: 30px;
+  background-color: #a3a3a3bd;
+  padding: 0 20px;
+  color: #fff;
+  font-size: 26px;
+  border: none;
+  &:focus {
+    outline: none;
+  }
+  &::placeholder {
+    color: #fff;
+  }
+}
+
+.trash {
+  position: relative;
+  z-index: 200;
+  font-size: 28px;
+  margin-left: -10px;
+  color: white;
+  
+}
+
+.add {
+  position: absolute;
+  left: 72%;
+  width: 40px;
+  height: 40px;
+  background-color: #3342CC;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cross {
+  font-size: 40px;
+  color: white;
+}
+.list_item {
+
+  position: relative;
+  width: 95%;
+  height: 5vh;
+  margin: 18px auto ;
+  background-color:#a3a3a38e;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: 60px;
+    color: #fff;
+    font-size: 26px;
+  }
+}
+
+.unchecked {
+  position: absolute;
+  color: white;
+  font-size: 54px;
+  cursor: pointer;
+}
+
+.checked_circle {
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.checked {
+  color: #80ED99;
+  font-size: 40px;
+}
+
+
+
+@media only screen and (max-width: 500px){
+  .to_do_list_container {
+    width: 380px;
+
+  }
+	/*Small smartphones [325px -> 425px]*/
+}
