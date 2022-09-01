@@ -1,7 +1,7 @@
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
 import List from './List';
-import { useState, useLayoutEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from "axios"
 
 const ToDoList = () => {
@@ -9,7 +9,7 @@ const ToDoList = () => {
     const [runEffect, setRunEffect] = useState(false)
     const [content, setContent] = useState()
 
-useLayoutEffect(() => {
+useEffect(() => {
     axios.get("/api/list")
      .then((response) => {
       const res = response.data

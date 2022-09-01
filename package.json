@@ -5,7 +5,8 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "nx test",
+    "postbuild": "npx workbox-cli generateSW workbox-config.js"
   },
   "private": true,
   "dependencies": {
@@ -71,6 +72,7 @@
     "eslint-plugin-jsx-a11y": "6.5.1",
     "eslint-plugin-react": "7.30.0",
     "eslint-plugin-react-hooks": "4.5.0",
+    "http-server": "^14.1.1",
     "jest": "27.5.1",
     "nx": "14.2.4",
     "prettier": "^2.6.2",
