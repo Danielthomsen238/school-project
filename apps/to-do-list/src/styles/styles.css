@@ -227,7 +227,7 @@ body {
 .unchecked {
   position: absolute;
   color: white;
-  font-size: 54px;
+  font-size: 80px;
   cursor: pointer;
 }
 
