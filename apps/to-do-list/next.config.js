@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const withNx = require('@nrwl/next/plugins/with-nx');
-const withPWA  = require("next-pwa");
+
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
@@ -15,13 +15,16 @@ const nextConfig = {
 
 
 module.exports = withNx(nextConfig)
+const withPWA = require("next-pwa");
+const runtimeCaching = require("next-pwa/cache");
+
 module.exports = withPWA({
-  //...before
-   pwa: {
-     dest: "public",
-     register: true,
-     skipWaiting: true,
-   },
-   //...after
- });
- 
+	reactStrictMode: true,
+	pwa: {
+		dest: "public",
+		register: true,
+		skipWaiting: true,
+		runtimeCaching,
+		buildExcludes: [/middleware-manifest.json$/]
+	}
+});
