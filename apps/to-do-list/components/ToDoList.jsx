@@ -9,7 +9,7 @@ const ToDoList = () => {
     const [runEffect, setRunEffect] = useState(false)
     const [content, setContent] = useState()
 
-useEffect(() => {
+useLayoutEffect(() => {
     axios.get("/api/list")
      .then((response) => {
       const res = response.data
