@@ -107,7 +107,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
-  font-size: 22px;
+  font-size: 16px;
   list-style: none;
   color: #fff;
 }
@@ -119,6 +119,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
   border-radius: 20px;
 }
 .tasks_count {
@@ -128,6 +129,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 16px;
   border-radius: 16px;
 }
 
@@ -159,7 +161,7 @@ body {
 
 .add_task {
   width: 55%;
-  height: 3rem;
+  height: 2.5rem;
   border-radius: 30px;
   background-color: #a3a3a3bd;
   padding: 0 20px;
