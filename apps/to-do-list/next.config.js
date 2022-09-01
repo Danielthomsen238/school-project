@@ -17,7 +17,7 @@ const nextConfig = {
 module.exports = withNx(nextConfig)
 const runtimeCaching = require('next-pwa/cache') 
 runtimeCaching[0].handler = 'StaleWhileRevalidate' 
-runtimeCaching[0].urlPattern = 'https://to-do-list-beta-dun.vercel.app/'
+runtimeCaching[0].urlPattern = 'localhost:4200/'
 module.exports = withPWA({
   //...before
    pwa: {
