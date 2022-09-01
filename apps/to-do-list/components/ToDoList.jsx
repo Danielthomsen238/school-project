@@ -41,6 +41,11 @@ const handleSubmit = () => {
     })
     .catch((e) => { console.log(e)}
     )
+
+    axios.get("/api/list")
+    .then((response) => {
+     const res = response.data
+     setData(res)})
     setContent('')
     setRunEffect(state => !state)
 }
