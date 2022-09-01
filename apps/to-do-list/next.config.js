@@ -15,6 +15,8 @@ const nextConfig = {
 
 
 module.exports = withNx(nextConfig)
+const runtimeCaching = require('next-pwa/cache') 
+runtimeCaching[0].handler = 'StaleWhileRevalidate' 
 module.exports = withPWA({
   //...before
    pwa: {
