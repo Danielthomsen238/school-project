@@ -47,7 +47,6 @@ const handleSubmit = () => {
      const res = response.data
      setData(res)})
     setContent('')
-    setRunEffect(state => !state)
 }
 const handleDelete = () => { 
         let execute = confirm("er du sikker på du vil slette alle færdige opgaver")
@@ -60,7 +59,11 @@ const handleDelete = () => {
         })
         .catch((e) => { console.log(e)}
          )
-         setRunEffect(state => !state)
+
+    axios.get("/api/list")
+    .then((response) => {
+     const res = response.data
+     setData(res)})
          }else{
             return
          }
