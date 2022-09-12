@@ -11,7 +11,7 @@ const Index = () => {
   const [data, getData] = useState([])
   const [likeData, getlikes] = useState([])
   const [count, setCount] = useState(0)
-
+ console.log(session)
 
  
  //fetch data likes and posts

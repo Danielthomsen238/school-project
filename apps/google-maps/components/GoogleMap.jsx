@@ -1,26 +1,43 @@
 import {useJsApiLoader, GoogleMap, Marker} from "@react-google-maps/api"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+// import Geocode from "react-geocode";
+import axios from "axios"
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
 
 
 
+// const api = "AIzaSyCufVGqDojiQIsK6ndPvoxPJAWvPqG0_e0"
+  //GeoCoding settings
+//   Geocode.setApiKey(api);
+//   Geocode.setLanguage("en");
+//   Geocode.setLocationType("ROOFTOP");
+ 
+//   Geocode.fromAddress().then(
+//     (response) => {
+//       const { lat, lng } = response.results[0].geometry.location;
+//       GetGeoCoding({lat, lng})
+//     },
+//     (error) => {
+//       console.error(error);
+//     }
+//   )
 
 const center = {
     lat: 57.047218,
     lng: 9.920100
 }
 
-const politi = {
-    lat: 57.042880,
-    lng: 9.924610
-}
 
-const techCollege = {
-    lat: 57.047680,
-    lng: 9.967620
-}
-const GoogleMaps = (props) => {
+const GoogleMaps = () => {
     const [marker, setMarker] = useState()
-  
+    const [data, setData] = useState()
+
+    useEffect(() => {
+        axios.get("https://school-project-iota.vercel.app/api/skoler")
+         .then((response) => {
+          const res = response.data.data
+          setData(res)})
+    },[])
 
     const {isLoaded} = useJsApiLoader({
         googleMapsApiKey: "AIzaSyCufVGqDojiQIsK6ndPvoxPJAWvPqG0_e0"
@@ -36,33 +53,30 @@ const GoogleMaps = (props) => {
     }
   
 
+
     return ( 
         <>
          <GoogleMap center={center} zoom={13} mapContainerStyle={{width: "100%", height: "80%"}}>
             {/*Displayer marker or other cildren components */}
-            {marker === "center" ? <Marker icon={{
-                 url: ('http://maps.google.com/mapfiles/ms/icons/green-dot.png'),
-                 scaledSize: { width: 60, height: 60},
-                 anchor: { x: 30, y: 60 },}} position={center}/> : <></>}
-            {marker === "politi" ? <Marker icon={{
-                url: ('http://maps.google.com/mapfiles/ms/icons/blue-dot.png'),
-                scaledSize: { width: 60, height: 60},
-                anchor: { x: 30, y: 60 },}} position={politi}/> : <></>}
-            {marker === "tech" ? <Marker icon={{
-                 url: ('http://maps.google.com/mapfiles/ms/icons/pink-dot.png'),
-                 scaledSize: { width: 60, height: 60},
-                 anchor: { x: 30, y: 60 },
-            }} position={techCollege}/> : <></>}
-            {marker === "userInput" ? <Marker icon={{
-                url: ('http://maps.google.com/mapfiles/ms/icons/red-dot.png'),
-                scaledSize: { width: 60, height: 60},
-                anchor: { x: 30, y: 60 },
-           }} position={props.setMarker}/> : <></>}
+            {data?.map((item, idx) => {
+                 const position = {
+                    lat: item.lat,
+                    lng: item.lng
+                 }
+                return marker === item.name ? <Marker key={idx} icon={{
+                    path: faLocationDot.icon[4],
+                    fillColor: "#0000ff",
+                    fillOpacity: 1,
+                    strokeWeight: 1,
+                    strokeColor: "#ffffff", 
+                    scale: 0.080,
+                    anchor: { x: 500, y: 500 },}} position={position}/> : <></>
+            })}
          </GoogleMap>
-         <button value="center" onClick={handleMarker}>Center</button>
-         <button value="userInput" onClick={handleMarker}>Userinput</button>
-         <button value="politi" onClick={handleMarker}>Politi</button>
-         <button value="tech" onClick={handleMarker}>Tech College</button>       
+         {data?.map((item, idx) => {
+              return <button key={idx} value={item.name} onClick={handleMarker}>{item.name}</button>
+         })}
+             
          </>
      );
 }

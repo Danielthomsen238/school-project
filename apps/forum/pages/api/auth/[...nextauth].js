@@ -1,13 +1,14 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from "next-auth/providers/credentials";
-import excuteQuery from "../../../src/db"
-const bcrypt = require('bcryptjs');
+import axios from 'axios';
+import jwt_decode from "jwt-decode"
 
 
 export default NextAuth({
   //Configure JWT
   session: {
       jwt: true,
+      maxAge: 60 * 60,
   },
   //Specify Provider
     providers: [
@@ -23,43 +24,34 @@ export default NextAuth({
             password: {  label: "Password", type: "password" }
           },
           async authorize(credentials) {
-              //Connect to DB
-              //Get all the users
-              const user = await excuteQuery(`SELECT username from users WHERE username = '${credentials.user}'`)
-              console.log("user", user[0].username)
-              if (!user) {
-                console.log("no user found")
-                  throw new Error('No user found with the email');
-              }
-              // //Check hased password with DB password
-              
-              const checkPassword = await excuteQuery(`SELECT password from users WHERE username = '${credentials.user}' `) 
-              const doesPasswordMatch = bcrypt.compareSync(credentials.password, checkPassword[0].password)
-              if (!doesPasswordMatch) {
-                console.log("password dont match")
-                  throw new Error('Password doesnt match');
-              }
-              //Else send success response
-              //Get id on the user 
-              const id = await excuteQuery(`SELECT id from users WHERE username = '${credentials.user}' AND password = '${checkPassword[0].password}'`)
-              return { userName: user[0].username, userID: id[0].id };
+             const accessToken = await login(credentials.user, credentials.password)
+             const payload = jwt_decode(accessToken.data.token)
+             console.log(payload)
+             if(accessToken.data.token){
+              return {userName: credentials.user, token: accessToken.data.token, userID: payload.user_id, firstname: payload.firstname}
+             }else {
+              console.log("error")
+               return null
+             }
+
           },
       }),
   ],
   callbacks: {
     async redirect({ url, baseUrl }) {
-      console.log("im here")
       return baseUrl;
     },
     //save the information of the user in the jwt
     jwt: async ({ token, user }) => {
+      
       user && (token.user = user)
-      console.log(token)
       return token
   },
   session: async ({ session, token }) => {
-      session.user.name = token.user.userName
-      session.user.id = token.user.userID
+      session.user.username = token.user.userName
+      session.user.token = token.user.token
+      session.user.userID = token.user.userID
+      session.user.firstname = token.user.firstname
       return session
   }
     
@@ -72,3 +64,17 @@ export default NextAuth({
    // newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
   },
 });
+
+const login = async (username, password) => {
+  const data = {
+    username,
+    password
+  }
+  try {
+    const response = axios.post('http://localhost:4000/login', data)
+    return response
+  } catch (error) {
+    console.log(error)
+  }
+  
+}
