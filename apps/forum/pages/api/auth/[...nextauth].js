@@ -28,7 +28,7 @@ export default NextAuth({
              const payload = jwt_decode(accessToken.data.token)
              console.log(payload)
              if(accessToken.data.token){
-              return {userName: credentials.user, token: accessToken.data.token, userID: payload.user_id, firstname: payload.firstname}
+              return {userName: credentials.user, token: accessToken.data.token, userID: payload.user_id, firstname: payload.firstname, role_id: payload.role_id, role: payload.role}
              }else {
               console.log("error")
                return null
@@ -52,12 +52,14 @@ export default NextAuth({
       session.user.token = token.user.token
       session.user.userID = token.user.userID
       session.user.firstname = token.user.firstname
+      session.user.role_id = token.user.role_id
+      session.user.role = token.user.role
       return session
   }
     
   },
   pages: {
-   //signIn: '/login/',
+   signIn: '/auth/signin',
    // signOut: '/auth/signout',
    // error: '/auth/error', // Error code passed in query string as ?error=
    // verifyRequest: '/auth/verify-request', // (used for check email message)

@@ -1,26 +1,26 @@
 import {useJsApiLoader, GoogleMap, Marker} from "@react-google-maps/api"
 import { useState, useEffect } from "react"
-// import Geocode from "react-geocode";
+ import Geocode from "react-geocode";
 import axios from "axios"
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons"
 
 
 
-// const api = "AIzaSyCufVGqDojiQIsK6ndPvoxPJAWvPqG0_e0"
+ const api = "AIzaSyCufVGqDojiQIsK6ndPvoxPJAWvPqG0_e0"
   //GeoCoding settings
-//   Geocode.setApiKey(api);
-//   Geocode.setLanguage("en");
-//   Geocode.setLocationType("ROOFTOP");
+  Geocode.setApiKey(api);
+  Geocode.setLanguage("en");
+  Geocode.setLocationType("ROOFTOP");
  
-//   Geocode.fromAddress().then(
-//     (response) => {
-//       const { lat, lng } = response.results[0].geometry.location;
-//       GetGeoCoding({lat, lng})
-//     },
-//     (error) => {
-//       console.error(error);
-//     }
-//   )
+  Geocode.fromAddress().then(
+    (response) => {
+      const { lat, lng } = response.results[0].geometry.location;
+      GetGeoCoding({lat, lng})
+    },
+    (error) => {
+      console.error(error);
+    }
+  )
 
 const center = {
     lat: 57.047218,
