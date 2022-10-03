@@ -13,6 +13,8 @@
     "space-ventur": "apps/space-ventur",
     "space-ventur-e2e": "apps/space-ventur-e2e",
     "to-do-list": "apps/to-do-list",
-    "to-do-list-e2e": "apps/to-do-list-e2e"
+    "to-do-list-e2e": "apps/to-do-list-e2e",
+    "wordpress-frontend": "apps/wordpress-frontend",
+    "wordpress-frontend-e2e": "apps/wordpress-frontend-e2e"
   }
 }
