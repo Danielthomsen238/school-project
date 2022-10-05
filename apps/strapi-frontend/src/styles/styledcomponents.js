@@ -181,13 +181,13 @@ const StyledBtnContainer = styled.div`
 `;
 //navbar
 const StyledNav = styled.nav`
-  width: 100vw;
+  width: 99vw;
   margin: 0 auto;
   display: flex;
   justify-content: start;
   background-color: #1e2019;
   a {
-    margin-left: 10vw;
+    margin-left: 3vw;
     transition: 300ms ease-in-out;
     font-size: 1.3vw;
     padding: 0.5vw 2vw;

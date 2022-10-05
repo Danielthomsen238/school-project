@@ -27,3 +27,26 @@ body {
   height: 1.7vw;
   margin-right: 1vw;
 }
+
+.cls-1 {
+  fill: #fff;
+}
+
+.cls-1, .cls-2 {
+  fill-rule: evenodd;
+}
+
+.cls-2, .cls-3 {
+  fill: #ef7d00;
+}
+
+.cls-3 {
+  stroke: #ef7d00;
+  stroke-miterlimit: 10;
+  stroke-width: 0.22px;
+}
+
+.svg {
+  width: 3vw;
+  margin-left: 3.5vw;
+}

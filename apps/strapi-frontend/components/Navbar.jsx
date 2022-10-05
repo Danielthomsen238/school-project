@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import { StyledNav } from '../src/styles/styledcomponents';
+import { ReactComponent as Logo } from '../src/images/logo.svg';
 
 const Navbar = () => {
   return (
     <StyledNav>
+      <Logo />
       <Link href="/">
         <a>Home</a>
       </Link>
