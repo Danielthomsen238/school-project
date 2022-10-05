@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1e2019;
+}
+
+.prev {
+  left: 0;
+  position: absolute;
+}
+
+.next {
+  right: 0;
+  position: absolute;
+}
+
+.search_container {
+  position: absolute;
+  right: 0;
+  top: 0.1vw;
+}
+.search_container input {
+  height: 1.7vw;
+  margin-right: 1vw;
+}

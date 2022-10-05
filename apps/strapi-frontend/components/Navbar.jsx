@@ -10,11 +10,14 @@ const Navbar = () => {
       <Link href="/about">
         <a>About</a>
       </Link>
-      <Link href="/blogs">
+      <Link href="/blogs/">
         <a>Blogs</a>
       </Link>
       <Link href="/contact">
         <a>contact</a>
+      </Link>
+      <Link href="/seeContact">
+        <a>Se contact data</a>
       </Link>
     </StyledNav>
   );

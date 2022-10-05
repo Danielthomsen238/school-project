@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import Navbar from '../components/Navbar';
+import { StyledPage } from '../src/styles/styledcomponents';
+import '../src/styles/GlobalStyles.css';
+import Footer from '../components/Footer';
 
 function CustomApp({ Component, pageProps }) {
   return (
@@ -8,9 +11,10 @@ function CustomApp({ Component, pageProps }) {
         <title>Welcome to strapi-frontend!</title>
       </Head>
       <Navbar />
-      <main className="app">
+      <StyledPage>
         <Component {...pageProps} />
-      </main>
+      </StyledPage>
+      <Footer />
     </>
   );
 }
