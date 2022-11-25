@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "booking-system": "apps/booking-system",
+    "booking-system-e2e": "apps/booking-system-e2e",
     "forum": "apps/forum",
     "forum-e2e": "apps/forum-e2e",
     "google-maps": "apps/google-maps",
@@ -16,7 +18,11 @@
     "strapi-frontend-e2e": "apps/strapi-frontend-e2e",
     "to-do-list": "apps/to-do-list",
     "to-do-list-e2e": "apps/to-do-list-e2e",
+    "to-do-typescript": "apps/to-do-typescript",
+    "to-do-typescript-e2e": "apps/to-do-typescript-e2e",
     "wordpress-frontend": "apps/wordpress-frontend",
-    "wordpress-frontend-e2e": "apps/wordpress-frontend-e2e"
+    "wordpress-frontend-e2e": "apps/wordpress-frontend-e2e",
+    "zustand-typescript": "apps/zustand-typescript",
+    "zustand-typescript-e2e": "apps/zustand-typescript-e2e"
   }
 }

@@ -5,7 +5,7 @@ import {
   StyledContainer,
   StyledImages,
   StyledSide,
-} from 'apps/strapi-frontend/src/styles/styledcomponents';
+} from '../../src/styles/styledcomponents';
 import Image from 'next/image';
 const base_url = 'http://localhost:1337';
 
