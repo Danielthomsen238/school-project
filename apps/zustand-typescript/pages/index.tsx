@@ -4,7 +4,8 @@ const Index = () => {
    *
    * Note: The corresponding styles are in the ./index.styled-components file.
    */
-  return <h1>hello from next</h1>;
+
+  return <></>;
 };
 
 export default Index;
