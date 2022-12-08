@@ -20,6 +20,8 @@
     "to-do-list-e2e": "apps/to-do-list-e2e",
     "to-do-typescript": "apps/to-do-typescript",
     "to-do-typescript-e2e": "apps/to-do-typescript-e2e",
+    "twod-game": "apps/twod-game",
+    "twod-game-e2e": "apps/twod-game-e2e",
     "vector-fun": "apps/vector-fun",
     "vector-fun-e2e": "apps/vector-fun-e2e",
     "wordpress-frontend": "apps/wordpress-frontend",

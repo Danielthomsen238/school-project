@@ -6,7 +6,7 @@ function CustomApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Welcome to vector-fun!</title>
+        <title>Welcome to twod-game!</title>
       </Head>
       <main className="app">
         <Component {...pageProps} />
