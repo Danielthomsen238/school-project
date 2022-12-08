@@ -43,5 +43,12 @@ const StyledContainer = styled.main`
   }
 `;
 
-const StyledFooter = styled.footer``;
+const StyledFooter = styled.footer`
+  margin-top: 100px;
+  height: 100px;
+  box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
+  background-color: #44ad55;
+`;
 export { StyledNav, StyledContainer, StyledFooter };
