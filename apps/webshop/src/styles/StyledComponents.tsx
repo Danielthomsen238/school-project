@@ -20,8 +20,9 @@ const StyledNav = styled.nav`
     }
   }
 `;
-const StyledContainer = styled.main`
+const StyledIndexContainer = styled.main`
   max-width: 60vw;
+  min-height: 100vh;
   margin: 0 auto;
   margin-top: 100px;
   div {
@@ -42,6 +43,21 @@ const StyledContainer = styled.main`
     }
   }
 `;
+const StyledShopContainer = styled.main`
+  max-width: 60vw;
+  min-height: 100vh;
+  margin: 0 auto;
+  margin-top: 100px;
+  display: flex;
+`;
+
+const StyledCard = styled.div`
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
 
 const StyledFooter = styled.footer`
   margin-top: 100px;
@@ -51,4 +67,10 @@ const StyledFooter = styled.footer`
   -moz-box-shadow: 0px -3px 5px 0px rgba(0, 0, 0, 0.75);
   background-color: #44ad55;
 `;
-export { StyledNav, StyledContainer, StyledFooter };
+export {
+  StyledNav,
+  StyledIndexContainer,
+  StyledFooter,
+  StyledShopContainer,
+  StyledCard,
+};

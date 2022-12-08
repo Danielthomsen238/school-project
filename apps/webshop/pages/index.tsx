@@ -1,4 +1,4 @@
-import { StyledContainer } from '../src/styles/StyledComponents';
+import { StyledIndexContainer } from '../src/styles/StyledComponents';
 import Image from 'next/image';
 import rom from '../src/images/rom.jpg';
 import vodka from '../src/images/vodka.jpg';
@@ -6,7 +6,7 @@ import whisky from '../src/images/whisky.jpg';
 
 const Index = () => {
   return (
-    <StyledContainer>
+    <StyledIndexContainer>
       <div>
         <Image
           src={rom.src}
@@ -79,7 +79,7 @@ const Index = () => {
           </p>
         </article>
       </div>
-    </StyledContainer>
+    </StyledIndexContainer>
   );
 };
 
