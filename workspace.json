@@ -24,6 +24,8 @@
     "twod-game-e2e": "apps/twod-game-e2e",
     "vector-fun": "apps/vector-fun",
     "vector-fun-e2e": "apps/vector-fun-e2e",
+    "webshop": "apps/webshop",
+    "webshop-e2e": "apps/webshop-e2e",
     "wordpress-frontend": "apps/wordpress-frontend",
     "wordpress-frontend-e2e": "apps/wordpress-frontend-e2e",
     "zustand-typescript": "apps/zustand-typescript",
