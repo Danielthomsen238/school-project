@@ -58,7 +58,16 @@ const StyledCard = styled.div`
     margin: 0;
   }
 `;
-
+const StyledCartContainer = styled.main`
+  max-width: 60vw;
+  min-height: 70vh;
+  margin: 0 auto;
+  margin-top: 100px;
+  background-color: #44ad55;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.75);
+`;
 const StyledFooter = styled.footer`
   margin-top: 100px;
   height: 100px;
@@ -73,4 +82,5 @@ export {
   StyledFooter,
   StyledShopContainer,
   StyledCard,
+  StyledCartContainer,
 };

@@ -6,7 +6,7 @@ export interface Items {
 }
 
 export interface Data {
+  title: string;
   price: number;
   antal: number;
-  title: string;
 }

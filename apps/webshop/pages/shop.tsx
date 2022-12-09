@@ -5,6 +5,7 @@ import vodka from '../src/images/vodka.jpg';
 import whisky from '../src/images/whisky.jpg';
 import { useState } from 'react';
 import { Items, Data } from '../helpers/interface';
+import { useCart } from '../helpers/useCart';
 
 const items: Items[] = [
   {
@@ -28,20 +29,6 @@ const items: Items[] = [
 ];
 
 const Shop = () => {
-  const [shoppingData, setShoppingData] = useState<Data>({
-    price: 0,
-    antal: 0,
-    title: '',
-  });
-
-  const handleChange = (title: string, price: number, antal: number) => {
-    setShoppingData({
-      title,
-      price,
-      antal,
-    });
-  };
-
   return (
     <StyledShopContainer>
       {items.map((item, idx) => {
@@ -52,8 +39,6 @@ const Shop = () => {
             title={item.title}
             info={item.info}
             price={item.price}
-            userInput={shoppingData}
-            change={handleChange}
           />
         );
       })}
