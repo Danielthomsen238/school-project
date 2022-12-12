@@ -11,11 +11,9 @@ interface Picture {
 }
 
 const PictureSlider = () => {
-  // Use a tuple to define the state variables
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  //   const [slideClass, setSlideClass] = useState<string>('slide');
+  const SliderRef = useRef<HTMLDivElement>(null);
 
-  // Define the pictures as an array of Picture objects
   const pictures: Picture[] = [
     { url: whisky.src, alt: 'Picture 3' },
     { url: rom.src, alt: 'Picture 1' },
@@ -31,24 +29,33 @@ const PictureSlider = () => {
 
   const nextPicture = () => {
     const newIndex = currentIndex + 1;
-    setCurrentIndex(newIndex >= pictures.length ? 0 : newIndex);
+    if (SliderRef.current) {
+      if (newIndex >= pictures.length - 1) {
+        console.log('hello motha fucka', newIndex);
+        SliderRef.current.style.transition = '0ms';
+        setCurrentIndex(0);
+        setTimeout(() => {
+          SliderRef.current.style.transition = '500ms';
+        }, 150);
+        return;
+      } else {
+        setCurrentIndex(newIndex);
+      }
+    }
   };
 
-  //   useEffect(() => {
-  //     if (currentIndex + 1 >= pictures.length) {
-  //       setSlideClass('no_slide');
-  //       console.log('stops here');
-  //       return;
-  //     }
-  //   }, [currentIndex]);
+  if (SliderRef.current) {
+    SliderRef.current.style.top = `${-600 * currentIndex}px`;
+  }
 
+  //   const slider = () => {};
   return (
     <div className="picture-slider">
       <button className="prev" onClick={prevPicture}>
         Prev
       </button>
-      <SliderContainer pos={-600 * currentIndex + 'px'}>
-        <div className="slide">
+      <SliderContainer>
+        <div ref={SliderRef} className="slide">
           {pictures.map((item, idx) => {
             return (
               <Image

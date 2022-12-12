@@ -138,7 +138,7 @@ const StyledFooter = styled.footer`
   background-color: #44ad55;
 `;
 
-const SliderContainer = styled.div<Picture>`
+const SliderContainer = styled.div`
   position: relative;
   height: 600px;
   width: 1000px;
@@ -147,12 +147,12 @@ const SliderContainer = styled.div<Picture>`
     width: 1000px;
     position: absolute;
     transition: ease-in-out 500ms;
-    top: ${(props) => props.pos};
+    top: 0;
   }
   .no_slide {
     width: 1000px;
     position: absolute;
-    top: ${(props) => props.pos};
+    top: 0;
   }
 `;
 export {
