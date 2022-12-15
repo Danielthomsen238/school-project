@@ -12,6 +12,7 @@ interface Picture {
 
 const PictureSlider = () => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
+
   const SliderRef = useRef<HTMLDivElement>(null);
 
   const pictures: Picture[] = [
@@ -29,24 +30,22 @@ const PictureSlider = () => {
 
   const nextPicture = () => {
     const newIndex = currentIndex + 1;
+    setCurrentIndex(newIndex >= pictures.length - 1 ? 0 : newIndex);
     if (SliderRef.current) {
+      console.log('hello motha fucka', newIndex);
       if (newIndex >= pictures.length - 1) {
-        console.log('hello motha fucka', newIndex);
         SliderRef.current.style.transition = '0ms';
-        setCurrentIndex(0);
+        SliderRef.current.style.top = `${-600 * currentIndex}px`;
         setTimeout(() => {
           SliderRef.current.style.transition = '500ms';
         }, 150);
         return;
       } else {
         setCurrentIndex(newIndex);
+        SliderRef.current.style.top = `${-600 * currentIndex}px`;
       }
     }
   };
-
-  if (SliderRef.current) {
-    SliderRef.current.style.top = `${-600 * currentIndex}px`;
-  }
 
   //   const slider = () => {};
   return (
