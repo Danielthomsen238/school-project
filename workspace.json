@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "bageriet": "apps/bageriet",
+    "bageriet-e2e": "apps/bageriet-e2e",
     "booking-system": "apps/booking-system",
     "booking-system-e2e": "apps/booking-system-e2e",
     "forum": "apps/forum",
