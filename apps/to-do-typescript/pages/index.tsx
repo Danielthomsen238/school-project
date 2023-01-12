@@ -15,12 +15,8 @@ const Index = () => {
   const [formData, setFormData] = useState<form>({ task: '' });
   const [tasks, setTasks] = useState<tasks>([]);
 
-  console.log(tasks);
   useEffect(() => {
     setTasks(getLocalStorage());
-    axios
-      .get('https://tour-cher-api.vercel.app/cars')
-      .then((respons) => console.log(respons));
   }, []);
   const Save = () => {
     useLocalStorage(formData);

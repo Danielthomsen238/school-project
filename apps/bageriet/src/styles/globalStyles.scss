@@ -1,4 +1,147 @@
+@font-face {
+        font-family: 'OpenSans';
+        src: url('../fonts/Open_sans/OpenSans-Regular.ttf');
+        font-weight: 400;
+        font-style: normal;
+       }
+
+@font-face {
+        font-family: 'Lobster';
+        src: url('../fonts/Lobster/Lobster_1.4.otf');
+        font-weight: 400;
+        font-style: normal;
+       }
 * {
+    font-family: "OpenSans";
     margin: 0;
     padding: 0;
 }
+
+nav {
+  @media only screen and (max-width: 1200px){
+    background-image: url('../images/navbg.jpg');
+    /*Tablets [601px -> 1200px]*/
+}
+
+}
+body, #__next {
+  position: relative;
+  z-index: -9999;
+  width: 100%;
+  
+}
+.news_h1 {
+  font-family: "Lobster";
+  letter-spacing: 2px;
+  font-size: 30px;
+  margin-bottom: 2vw;
+}
+.news_p {
+  margin: 0 auto;
+  margin-bottom: 6vw;
+  width: 55vw;
+  color: grey;
+}
+.header_p {
+  position: absolute;
+  font-size: 5vw;
+  width: 41%;
+  top: 45%;
+  left: 29.5%;
+  color:rgb(255, 255, 255);
+  font-family: "Lobster";
+}
+
+.logo {
+    font-family: "Lobster";
+}
+
+header {
+   z-index: -9999;
+    height: 45vw;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    top: -200px;
+    @media only screen and (max-width: 1200px){
+      /*Tablets [601px -> 1200px]*/
+      display: none;
+  }
+  }
+
+.slideshow {
+    margin: 0 auto;
+    position: absolute;
+    transition: ease-in-out 1s;
+    z-index: -5;
+  }
+  
+  .slideshowSlider {
+    white-space: nowrap;
+    display: flex;
+  }
+  
+  .image_wrapper {
+    display: block;
+    width: 100vw;
+    position: relative;
+  }
+
+  .image_text_container {
+    position: absolute;
+    color: white;
+    z-index: 1;
+    top: 20vh;
+    left:10%;
+    transition: ease-in 2.5s;
+    opacity: 0;
+  }
+  .image_text_container.active {
+    opacity: 1;
+    top:50%;
+  }
+  .image_title {
+    font-size: 25px;
+    margin: 0;
+  }
+  .image_content {
+    margin: 0;
+    font-size: 70px;
+  }
+  /*Slide Buttons */
+  
+  .slideshowDots {
+    width: 10vw;
+    right: 45vw;
+    left: 45vw;
+    position: absolute;
+    top: 40vw;
+    left: 45vw;
+    z-index: -4;
+    display: flex;
+  }
+  
+  .slideshowDot {
+    display: inline-block;
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50px;
+    margin: 10px 10px;
+    background-color: rgb(255, 255, 255);
+ 
+  
+    cursor: pointer;
+    &:hover {
+        background-color: #5f5f5fb7;
+    }
+  }
+  
+  .slideshowDot.active {
+    background-color: #5f5f5fb7;
+  }
+
+
+
+ .footer_p {
+  font-family: "Lobster";
+ }
