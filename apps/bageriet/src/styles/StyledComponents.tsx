@@ -42,6 +42,7 @@ const StyledMain = styled.main<MainProps>`
   min-height: 90vh;
   max-width: 100vw;
   margin: 0 auto;
+  padding-bottom: 5vh;
   padding-top: 10vh;
   background-color: ${(props) => (props.bgColor ? props.bgColor : '')};
   .news_section {
@@ -419,6 +420,113 @@ const StyledDetails = styled.section`
   }
 `;
 
+const StyledComments = styled.div`
+  width: 60vw;
+  margin: 0 auto;
+  .pages {
+    width: 10vw;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      background-color: white;
+      border: solid #e4e4e4 1px;
+    }
+    button {
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      border: solid #e4e4e4 1px;
+    }
+  }
+  .comment_container {
+    display: flex;
+    background-color: white;
+    border: solid 1px #e4e4e4;
+    margin-bottom: 2vh;
+    .profil_name {
+      margin-top: 1vh;
+      font-size: 25px;
+    }
+    .time_of_comment {
+      margin-top: 0.5vh;
+      color: grey;
+      font-size: 14px;
+    }
+    .comment {
+      margin-top: 2vh;
+      font-size: 19px;
+      color: grey;
+    }
+  }
+  .submit_comment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    div {
+      background-color: white;
+      border: solid 1px #e4e4e4;
+      width: 90%;
+      display: flex;
+      height: 3vw;
+      align-items: center;
+    }
+    svg {
+      color: grey;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+    button {
+      height: 3vw;
+      width: 9.5%;
+      border: none;
+      cursor: pointer;
+      color: white;
+      background-color: #435271;
+    }
+    input {
+      height: 100%;
+      width: 100vw;
+      font-size: 20px;
+      border: none;
+      &::placeholder {
+        font-size: 20px;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+`;
+
+const StyledComCount = styled.div`
+  display: flex;
+  justify-content: space-between;
+  padding: 1vw 2vw;
+  margin-bottom: 2vh;
+  width: 56vw;
+  margin: 0 auto;
+  background-color: white;
+  border: solid 1px #e4e4e4;
+  svg {
+    color: grey;
+    font-size: 18px;
+    margin-bottom: -3px;
+  }
+  p {
+    color: grey;
+  }
+`;
+
 export {
   StyledNav,
   StyledFooter,
@@ -428,4 +536,6 @@ export {
   StyledProducts,
   StyledBreadcrumb,
   StyledDetails,
+  StyledComments,
+  StyledComCount,
 };

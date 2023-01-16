@@ -10,6 +10,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import ForumIcon from '@mui/icons-material/Forum';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { useSession } from 'next-auth/react';
 
 interface News {
   id: number;
@@ -43,6 +44,8 @@ const Index = () => {
   const [news, getNews] = useState<News[]>([]);
   const [products, getProducts] = useState<Products[]>([]);
   const [email, setEmail] = useState<string>('');
+  const { data: session, status } = useSession();
+  console.log(session);
 
   const router = useRouter();
   useEffect(() => {

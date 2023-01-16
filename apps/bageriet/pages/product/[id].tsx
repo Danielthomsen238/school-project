@@ -1,15 +1,22 @@
 import {
   StyledBreadcrumb,
+  StyledComCount,
+  StyledComments,
   StyledDetails,
   StyledMain,
 } from 'apps/bageriet/src/styles/StyledComponents';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import CreateIcon from '@mui/icons-material/Create';
+import ForumIcon from '@mui/icons-material/Forum';
 import axios from 'axios';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-
+import { useSession } from 'next-auth/react';
+import profileImage from '../../src/images/blank.jpg';
+import * as moment from 'moment';
+import 'moment/locale/da';
 interface Details {
   product: {
     amount: number;
@@ -35,6 +42,19 @@ interface Details {
     };
   };
 }
+interface Comments {
+  id: number;
+  title: string;
+  comment: string;
+  user_id: number;
+  created: number;
+  user: {
+    username: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+  };
+}
 
 export async function getServerSideProps(context) {
   const id = context.params.id;
@@ -54,7 +74,12 @@ export async function getServerSideProps(context) {
 }
 
 const ProductDetail = ({ product }: Details) => {
+  const { data: session, status } = useSession();
+  console.log(status);
+  const [count, setCount] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const [categoryId, getCategoryId] = useState([]);
+  const [comments, getComments] = useState<Comments[]>([]);
   const [showCategory, setShow] = useState<boolean>(false);
   useEffect(() => {
     axios
@@ -73,7 +98,6 @@ const ProductDetail = ({ product }: Details) => {
       .get(`https://api.mediehuset.net/bakeonline/categories`)
       .then((response) => {
         const data = response.data.items;
-        console.log(response);
         data.forEach((items) => {
           if (categoryId === items.id) {
             product.category = {
@@ -85,8 +109,33 @@ const ProductDetail = ({ product }: Details) => {
         });
       });
   }, [categoryId, product]);
-  console.log(product);
+  useEffect(() => {
+    const header = {
+      headers: { authorization: `Bearer ${session?.user.token}` },
+    };
+    axios
+      .get(
+        `https://api.mediehuset.net/bakeonline/comments/${product.id}`,
+        header
+      )
+      .then((response) => {
+        const data = response.data.items;
+        getComments(data);
+      });
+  }, [product.id, session?.user.token]);
 
+  const nextComments = () => {
+    if (count < comments.length - 3) {
+      setCount((state) => state + 3);
+      setPage((state) => state + 1);
+    }
+  };
+  const prevComments = () => {
+    if (count > 0) {
+      setCount((state) => state - 3);
+      setPage((state) => state - 1);
+    }
+  };
   return (
     <StyledMain bgColor={'#f1f1f17e'} flex={false} activ={0}>
       <StyledBreadcrumb>
@@ -133,6 +182,70 @@ const ProductDetail = ({ product }: Details) => {
           </ul>
         </div>
       </StyledDetails>
+      {status === 'authenticated' ? (
+        <StyledComments>
+          <StyledComCount>
+            <h3>Kommentar</h3>
+            <p>
+              {product.num_comments} <ForumIcon />
+            </p>
+          </StyledComCount>
+          <div className="submit_comment">
+            <div>
+              <CreateIcon />
+              <input type="text" placeholder="Fortæl os hvad du synes....." />
+            </div>
+            <button>Indsæt</button>
+          </div>
+          {comments &&
+            comments.map((item, idx) => {
+              const dateString = moment
+                .unix(item.created)
+                .format('dddd, Do MMM YYYY, h:mm:ss');
+              if (idx < 3 + count && idx >= 0 + count) {
+                return (
+                  <div className="comment_container" key={idx}>
+                    <div className="profile_image">
+                      <Image
+                        src={profileImage.src}
+                        alt="profile_image"
+                        width={200}
+                        height={150}
+                        layout="fixed"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="profil_name">
+                        {item.user.firstname} {item.user.lastname}
+                      </h3>
+                      <p className="time_of_comment">
+                        {dateString.charAt(0).toUpperCase() +
+                          dateString.substring(1)}
+                      </p>
+                      <p className="comment">{item.comment}</p>
+                    </div>
+                  </div>
+                );
+              }
+            })}
+          <div className="pages">
+            {count > 0 ? (
+              <button onClick={() => prevComments()}>&lt;</button>
+            ) : null}
+            <p>{page}</p>
+            {count < comments.length - 3 ? (
+              <button onClick={() => nextComments()}>&gt;</button>
+            ) : null}
+          </div>
+        </StyledComments>
+      ) : (
+        <StyledComCount>
+          <h3>Kommentar</h3>
+          <p>
+            {product.num_comments} <ForumIcon />
+          </p>
+        </StyledComCount>
+      )}
     </StyledMain>
   );
 };
