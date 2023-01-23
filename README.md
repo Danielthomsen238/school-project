@@ -1,4 +1,4 @@
-#This is a Monorepo 
+# This is a Monorepo 
 alote of the project in here is for learning new stuff and is not all working or made with best practic for final results see repos that are not in this Nx workspace
 
 # SchoolProject
